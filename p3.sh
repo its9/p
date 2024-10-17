@@ -1,27 +1,55 @@
 #!/bin/sh
-file="file.txt"
-if [ -r $file ]
+file="file.sh" 
+if [ -r $file ] 
 then 
-echo "read permission"
+echo "File has read permission"
+else
+echo "File does not have read permission"
+fi
+if [ -w $file ] 
+then 
+echo "File has write permission"
+else
+echo "File does not have write permission" 
+fi
+ if [ -x $file ]
+ then
+echo "File has execute permission" 
 else 
-echo "not read permission"
+echo "File does not have execute permission" 
 fi
-if [ -w $file ]
+if [ -f $file ]
 then 
-echo "write permission"
-else
-echo "not write permission"
+echo "File is an ordinary file"
+else echo "This is a special file"
 fi
-if [ -x $file ]
+ if [ -d $file ]
 then 
-echo "excute permission"
+echo "File is a directory" 
 else
-echo "not excute permission"
-fi
-if [ -w$file ]
-then 
-echo "write permission"
-else
-echo "not write permission"
-fi
- 
+ echo "File is not a directory"
+ fi 
+if [ -s $file ]
+ then
+ echo "File size is zero"
+ else 
+echo "File size is greater than  zero"
+ fi
+ if [ -e $file ]
+ then 
+echo "File exists"
+ else 
+echo "File does not exist" 
+fi 
+if [ -b $file ]
+ then 
+echo "File is a block file "
+ else 
+echo "File is not a block file" 
+fi 
+if [ -c $file ]
+ then 
+echo "File is a character file "
+ else 
+echo "File is not a character file" 
+fi 
